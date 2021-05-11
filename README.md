@@ -1,47 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Technical Challenge
 
-## Getting Started
+# Rick & Morty Application
 
-First, run the development server:
+## General
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+We need a fancy application, with backend and frontend, which consume the public API of Rick & Morty: https://rickandmortyapi.com. This API should be consumed from your backend application, not directly from the frontend.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+We need these **functionalities**:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Login
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- The users need to be authenticated to consume the application.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  The auth have to keep the state between reloads.
 
-## Atomic Design System
+- List all character’s view
 
-![Atomic Design](https://atomicdesign.bradfrost.com/images/content/html-periodic-table.png)
+  An indicator to know if a character is in fav list.
 
-### **Atoms**
-The basic building blocks of all matter. Each chemical element has distinct properties, and they can’t be broken down further without losing their meaning. (Yes, it’s true atoms are composed of even smaller bits like protons, electrons, and neutrons, but atoms are the smallest functional unit.)
+- Detail character’s view
 
-### **Molecules**
-Groups of two or more atoms held together by chemical bonds. These combinations of atoms take on their own unique properties, and become more tangible and operational than atoms.
+  A button to add the character to a fav list, in case the character is in fav list it will be removed from fav list.
 
-### **Organisms**
-Assemblies of molecules functioning together as a unit. These relatively complex structures can range from single-celled organisms all the way up to incredibly sophisticated organisms like human beings.
+- 404 page
 
-## Learn More
+## Rules
 
-To learn more about Next.js, take a look at the following resources:
+- The frontend will be made in React with Hooks and Redux. Feel free if you want to add more JS libraries but if you do that, please, tell us in the Readme.md file why did you choose them. Design is free.
+- The backend will be made in Express. Feel free if you want to add more JS libraries but if you do that, please, tell us in the Readme.md file why did you choose them.
+- Please, don’t use styles libraries like Bootstrap or Material. We need to know your skills and we assume the application won't be a stellar designed app.
+- Make focus on quality. We won’t care a lot if you don't finish all points, but we will care a lot the quality of what you created.
+- The user information for login should be stored in a DB. Feel free to choose the DB you consider.
+- When a user saves characer in fav list it should be reflected on DB. Feel free to choose the DB you consider.
+- The application must be delivered in a repo. If you want to keep it in secret just create a fake account in GitHub.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Extra points (optional)
+These extra points are not mandatory. If you have time and desire go ahead!
+- Add test. Feel free to decide how and where.
+- Add a register page for new users.
+- Add backend pagination
+- Preload images and add a loader
+- Take a beer, you worked a lot!

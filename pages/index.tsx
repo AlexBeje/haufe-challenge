@@ -1,31 +1,52 @@
 import styled from "styled-components";
 
-export default function Home() {
-  return (
-    <Layout>
-      <Title>Welcome!</Title>
-      <Subtitle>To Bia's Website.</Subtitle>
-    </Layout>
-  );
+// INTERFACES
+import { ICharacters, ICharacter } from "../Interfaces/ICharacters";
+
+// COMPONENT
+import Card from "../components/Molecules/Card";
+
+// STYLE
+import * as colors from "../styles/colors";
+
+export default function Home({ characters }: { characters: ICharacters }) {
+
+  const renderCharacters = () => {
+    if (characters) {
+      return characters.results.map((character: ICharacter) => (
+        <StyledCard character={character} key={character.id} />
+      ));
+    } else {
+      console.error("No characters found");
+    }
+  };
+  renderCharacters();
+  return <Container>{renderCharacters()}</Container>;
 }
 
-const Layout = styled.div`
-  background: #222222;
+// STYLED COMPONENTS
+const Container = styled.div`
+  background: ${colors.background};
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 `;
 
-const Title = styled.div`
-  color: gold;
-  font-size: 5rem;
-  font-weight: 700;
-  margin: auto;
-  margin-bottom: 1rem;
-`;
+const StyledCard = styled(Card)`
+  margin-bottom: 2rem;
+  :first-of-type {
+    margin-top: 2rem;
+  }
+`
 
-const Subtitle = styled.div`
-  font-size: 2rem;
-  margin: auto;
-  margin-top: 0;
-`;
+// GET STATIC PROPS (API CALL)
+export async function getStaticProps() {
+  const res = await fetch("https://rickandmortyapi.com/api/character");
+  const characters = await res.json();
+
+  return {
+    props: {
+      characters,
+    },
+  };
+}
