@@ -40,13 +40,13 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Mandatory/Mandatory.otf"
+            href="/fonts/Roboto/Roboto400.ttf"
             as="font"
             crossOrigin=""
           />
           <link
             rel="preload"
-            href="/fonts/Roboto/Roboto.ttf"
+            href="/fonts/Roboto/Roboto700.ttf"
             as="font"
             crossOrigin=""
           />
